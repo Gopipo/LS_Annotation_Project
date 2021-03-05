@@ -14,3 +14,4 @@ To use prodigy to start annotating call:
 ```
 python3 -m prodigy image.caption-text-align my_database ./corpora/JSON/imageTextPaired.jsonl -F AnnotationInterface_ImageCaptionAndTextAlign.py
 ```
+and follow the instructions on screen.
