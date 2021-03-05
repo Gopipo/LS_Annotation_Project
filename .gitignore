@@ -1,6 +1,9 @@
 # Corpus files
 Corpora/
 
+#local backup files
+dir2jsonl_bk.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
