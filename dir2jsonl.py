@@ -6,6 +6,7 @@ import re
 import sys
 import json
 
+#@CHECKPATH
 imageDirectory = "./Corpora/images_webcorpus/"
 textDirectory = "./Corpora/tokenized_txt_files/tokenized_"
 mode = ""
@@ -34,9 +35,20 @@ def writeJSON(imagePath, textPath):
     #create JSON format
     dict = {"image": imagePath, "text": content}
     #append file
+    #@CHECKPATH
     with open("./Corpora/JSON/imageTextPaired.jsonl", "a", encoding="utf-8") as f:
         json.dump(dict, f)
         f.write("\n")
+
+def check_fileExists():
+    """Alert user if .jsonl file already exists."""
+    #@CHECKPATH
+    if os.path.isfile("./Corpora/JSON/imageTextPaired.jsonl"):
+        appendVerification = ""
+        while appendVerification != "y" and appendVerification != "n":
+            appendVerification = input("The file ./Corpora/JSON/imageTextPaired.jsonl already exists. \n Are you sure you want to append said file with the data in: ./Corpora/images_webcorpus/ \n (y/n): ")
+        if appendVerification == "n":
+            sys.exit("Execution stopped.")
 
 def main():
     """Pre: Only execute this once. Appends imageTextPaired.jsonl file!
@@ -46,25 +58,18 @@ def main():
     corresponding text, appends the pair to the specified .jsonl
     file..
     """
-    # alert user if .jsonl file already exists
-    if os.path.isfile("./Corpora/JSON/imageTextPaired.jsonl"):
-        appendVerification = ""
-        while appendVerification != "y" and appendVerification != "n":
-            appendVerification = input("The file ./Corpora/JSON/imageTextPaired.jsonl already exists. \n Are you sure you want to append said file with the data in: ./Corpora/images_webcorpus/ \n (y/n): ")
-        if appendVerification == "n":
-            sys.exit("Execution stopped.")
+    check_fileExists()
 
+    #@CHECK_STRUCTURE
     # images_html/, images_pdf/
     for subdirectory0 in os.listdir(imageDirectory):
         subdirectory0 += "/"
         # */*_monolingual/, */*_parallel/
         for subdirectory1 in os.listdir(imageDirectory
                                        + subdirectory0):
-
             mode = getMode(subdirectory1)
 
             subdirectory1 += "/"
-
             currentTextDirectory = textDirectory + mode + "/"
             # file level
             for filename in os.listdir(imageDirectory
