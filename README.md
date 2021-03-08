@@ -1,9 +1,13 @@
 # LS Annotation Project
 
 Before running dir2jsonl.py once to prepare images and text for prodigy, make sure that your corpus directory structure is as follows:
+
 Images:
+
 e.g. .\Corpora\images_webcorpus\images_html\images_html_monolingual
+
 Text:
+
 e.g. .\Corpora\tokenized_txt_files\tokenized_monolingual
 If not, adjust the for-loops following the #@CHECK_STRUCTURE marker.
 
