@@ -40,3 +40,4 @@ If you erroneously commited something, hit *backspace*, *del*, or the grey &#862
 On the left you see the Prodigy progress element. 
 To save your annotations hit the &#x1F4BE; in its top right corner. If all is saved, it shows a &#128504; instead.
 
+Prodigy can now be terminated from the console upon which it displays your session summary indicating how many annotations were saved successfully. 
