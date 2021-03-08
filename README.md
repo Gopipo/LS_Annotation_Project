@@ -31,7 +31,7 @@ If the image is a logo or another kind of boilerplate image, skip it by hitting 
 If the image is none of the above, enter the caption in the text input field below the image, mark the text section to which the image corresponds and finally press the &#9989; button or the *a* key.
 
 ###Error correction
-If you accidentaly mark a span on the immage, hit *q* or the circular arrows button to the top right of the image &#10554;+&#10555;
+If you accidentaly mark a span on the immage, hit *q* or the circular arrows button to the top right of the image &#10554; &#10555;
 If you erroneously commited something, hit *backspace*, *del*, or the grey &#8629; button.
 
 Due to conflicting "spans", the image interface in use provides additional tools to mark image spans; these are not needed.
