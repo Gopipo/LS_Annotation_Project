@@ -10,6 +10,7 @@ e.g. .\Corpora\images_webcorpus\images_html\images_html_monolingual
 Text:
 
 e.g. .\Corpora\tokenized_txt_files\tokenized_monolingual
+
 If not, adjust the for-loops following the #@CHECK_STRUCTURE marker.
 
 You may specify the image & text directories as well as the outfile by either:
