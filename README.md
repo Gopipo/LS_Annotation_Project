@@ -33,8 +33,10 @@ If the image is a logo or another kind of boilerplate image, skip it by hitting 
 If the image is none of the above, enter the caption in the text input field below the image, mark the text section to which the image corresponds and finally press the &#9989; button or the *a* key.
 
 ### Error correction
-To correct accidentaly marked image spans, hit *q* or the circular arrows button to the top right of the image.
 To correct a text span, hover over the yellow highlighting and then hit the x at its top left corner.
 If you erroneously commited something, hit *backspace*, *del*, or the grey &#8629; button.
 
-Due to conflicting "spans", the image interface in use provides additional tools to mark image spans; these are not needed.
+### Saving your progress
+On the left you see the Prodigy progress element. 
+To save your annotations hit the &#128190; in its top right corner.
+
