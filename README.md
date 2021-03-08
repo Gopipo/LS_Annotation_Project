@@ -26,6 +26,8 @@ To use prodigy to start annotating call:
 ```
 python3 -m prodigy image.caption-text-align my_database ./corpora/JSON/imageTextPaired.jsonl -F AnnotationInterface_ImageCaptionAndTextAlign.py
 ```
+(prodigy recipe_name database_name path_to_preprocessing_output_file)
+
 If the image is a logo or another kind of boilerplate image, skip it by hitting *spacebar* or the grey &#128711; button.
 
 If the image is none of the above, enter the caption in the text input field below the image, mark the text section to which the image corresponds and finally press the &#9989; button or the *a* key.
