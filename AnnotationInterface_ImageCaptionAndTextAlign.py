@@ -6,12 +6,15 @@ import spacy
 from prodigy.components.loaders import JSONL
 from prodigy.components.preprocess import fetch_images, add_tokens
 
+
 @prodigy.recipe(
     "image.caption-text-align",
     dataset=("The dataset to use", "positional", None, str),
-    sourcefile=("The file containing text and image paths", "positional", None, str)
+    sourcefile=("The file containing text and image paths",
+                "positional",
+                None,
+                str)
     )
-
 def image_caption_text_align(dataset: str, sourcefile: str):
     """Stream in images and corresponding text.
     """
@@ -20,7 +23,6 @@ def image_caption_text_align(dataset: str, sourcefile: str):
     stream = JSONL(sourcefile)
     stream = fetch_images(stream)
     stream = add_tokens(nlp, stream)
-
 
     blocks = [
         {"view_id": "image_manual"},
@@ -35,8 +37,8 @@ def image_caption_text_align(dataset: str, sourcefile: str):
         "stream": stream,
         "view_id": "blocks",
         "config": {"blocks": blocks,
-            "lang": nlp.lang,
-            "labels": ["current image"],
-            "image_manual_spans_key": "image_spans"
-        }
+                   "lang": nlp.lang,
+                   "labels": ["current image"],
+                   "image_manual_spans_key": "image_spans"
+                   }
     }
