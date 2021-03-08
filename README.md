@@ -21,7 +21,7 @@ python3 dir2jsonl.py
 
 python3 dir2jsonl.py -i ./Corpora/images_webcorpus/ -t ./Corpora/tokenized_txt_files/tokenized_ -o imageTextPaired.jsonl
 ```
-##Annotating
+## Annotating
 To use prodigy to start annotating call:
 ```
 python3 -m prodigy image.caption-text-align my_database ./corpora/JSON/imageTextPaired.jsonl -F AnnotationInterface_ImageCaptionAndTextAlign.py
@@ -30,7 +30,7 @@ If the image is a logo or another kind of boilerplate image, skip it by hitting 
 
 If the image is none of the above, enter the caption in the text input field below the image, mark the text section to which the image corresponds and finally press the &#9989; button or the *a* key.
 
-###Error correction
+### Error correction
 To correct accidentaly marked image spans, hit *q* or the circular arrows button to the top right of the image.
 To correct a text span, hover over the yellow highlighting and then hit the x at its top left corner.
 If you erroneously commited something, hit *backspace*, *del*, or the grey &#8629; button.
