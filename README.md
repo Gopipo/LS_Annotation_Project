@@ -38,5 +38,5 @@ If you erroneously commited something, hit *backspace*, *del*, or the grey &#862
 
 ### Saving your progress
 On the left you see the Prodigy progress element. 
-To save your annotations hit the &#128190; in its top right corner.
+To save your annotations hit the &#x1F4BE; in its top right corner.
 
