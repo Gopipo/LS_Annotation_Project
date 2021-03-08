@@ -3,7 +3,7 @@
 
 import prodigy
 import spacy
-from prodigy.components.loaders import JSONL, Images
+from prodigy.components.loaders import JSONL
 from prodigy.components.preprocess import fetch_images, add_tokens
 
 @prodigy.recipe(
