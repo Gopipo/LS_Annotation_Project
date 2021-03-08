@@ -25,7 +25,7 @@ def image_caption_text_align(dataset: str, sourcefile: str):
     stream = add_tokens(nlp, stream)
 
     blocks = [
-        {"view_id": "image_manual"},
+        {"view_id": "image", "spans": []},
         {"view_id": "text_input",
             "field_id": "caption",
             "field_rows": 4,
@@ -38,7 +38,6 @@ def image_caption_text_align(dataset: str, sourcefile: str):
         "view_id": "blocks",
         "config": {"blocks": blocks,
                    "lang": nlp.lang,
-                   "labels": ["current image"],
-                   "image_manual_spans_key": "image_spans"
+                   "labels": ["current image"]
                    }
     }
