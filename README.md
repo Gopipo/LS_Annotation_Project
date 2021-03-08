@@ -26,12 +26,13 @@ To use prodigy to start annotating call:
 ```
 python3 -m prodigy image.caption-text-align my_database ./corpora/JSON/imageTextPaired.jsonl -F AnnotationInterface_ImageCaptionAndTextAlign.py
 ```
-If the image is a logo or another kind of boilerplate image, skip it by hitting *spacebar* or the grey prohibition symbol.
+If the image is a logo or another kind of boilerplate image, skip it by hitting *spacebar* or the grey &#128711; button.
 
 If the image is none of the above, enter the caption in the text input field below the image, mark the text section to which the image corresponds and finally press the &#9989; button or the *a* key.
 
 ###Error correction
-If you accidentaly mark a span on the immage, hit *q* or the circular arrows button to the top right of the image &#10554; &#10555;
+To correct accidentaly marked image spans, hit *q* or the circular arrows button to the top right of the image.
+To correct a text span, hover over the yellow highlighting and then hit the x at its top left corner.
 If you erroneously commited something, hit *backspace*, *del*, or the grey &#8629; button.
 
 Due to conflicting "spans", the image interface in use provides additional tools to mark image spans; these are not needed.
