@@ -22,7 +22,7 @@ python3 dir2jsonl.py
 python3 dir2jsonl.py -i ./Corpora/images_webcorpus/ -t ./Corpora/tokenized_txt_files/tokenized_ -o imageTextPaired.jsonl
 ```
 ## Annotating
-This requires [Explosion's](https://explosion.ai/) [Prodigy with an active license](https://prodi.gy/buy).
+This requires [Explosion's](https://explosion.ai/) [prodigy with an active license](https://prodi.gy/buy).
 
 To use prodigy to start annotating call:
 ```
