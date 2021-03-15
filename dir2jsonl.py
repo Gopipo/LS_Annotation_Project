@@ -35,6 +35,11 @@ def parse_args():
                         help="name of outfile (JSONL format)",
                         default=targetFile,
                         required=False)
+    parser.add_argument("-p", "--keeppaths",
+                        help="stores images path twice in case base64-encoding \
+                              is used in prodigy",
+                        action="store_true",
+                        required=False)
     args = parser.parse_args()
     return args
 
@@ -51,7 +56,7 @@ def getMode(path) -> str:
     return currentMode[0]
 
 
-def writeJSON(imagePath, textPath, outfile):
+def writeJSON(imagePath, textPath, outfile, keepPaths):
     """ Appends JSON Lines file with image path and text to be fed to prodigy
     as stream for annotation.
     """
@@ -62,7 +67,10 @@ def writeJSON(imagePath, textPath, outfile):
             content = content + line
 
     # create JSON format
-    dict = {"image": imagePath, "text": content}
+    if keepPaths:
+        dict = {"image": imagePath, "imagePath": imagePath, "text": content}
+    else:
+        dict = {"image": imagePath, "text": content}
     # append file
     with open(outfile, "a", encoding="utf-8") as f:
         json.dump(dict, f)
@@ -124,7 +132,7 @@ def main():
                              + " Could not resolve corpus file number.")
 
                 textPath = currentTextDirectory + corpusFileNr[0] + ".txt"
-                writeJSON(imagePath, textPath, outfilePath)
+                writeJSON(imagePath, textPath, outfilePath, args.keeppaths)
 
 
 if __name__ == "__main__":
