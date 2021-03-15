@@ -15,12 +15,12 @@ If not, adjust the for-loops following the #@CHECK_STRUCTURE marker.
 
 You may specify the image & text directories as well as the outfile by either:
 1. changing the paths within the code at positions following the #@CHECK_PATH marker
-2. calling the function with the optional parameters: -i or --imgdir; -t or --txtdir; -o or --outfile
+2. calling the function with the optional parameters: -i or --imgdir; -t or --txtdir; -o or --outfile; -p or --keeppaths
 ```
 python3 dir2jsonl.py
 
 
-python3 dir2jsonl.py -i ./Corpora/images_webcorpus/ -t ./Corpora/tokenized_txt_files/tokenized_ -o imageTextPaired.jsonl
+python3 dir2jsonl.py -i ./Corpora/images_webcorpus/ -t ./Corpora/tokenized_txt_files/tokenized_ -o imageTextPaired.jsonl -p
 ```
 ## Annotating
 This requires [Explosion's](https://explosion.ai/) [prodigy with an active license](https://prodi.gy/buy).
