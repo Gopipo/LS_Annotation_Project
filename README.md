@@ -47,6 +47,10 @@ To save your annotations hit the &#x1F4BE; in its top right corner. If all is sa
 Prodigy can now be terminated from the console upon which it displays your session summary indicating how many annotations were saved successfully. 
 
 ### Practical Tipps
+If you forgot the name of your database:
+```
+python3 -m prodigy stats -ls
+```
 Most images repeat often; save your annotations in a separate text file and copy-paste them from there. (Remember a key word or expression so you can easily find them again using Ctrl+f.) 
 For text alignment, use your browser's find function (Ctrl+f) and select "Highlight all" in order to quickly scan a text for words and expressions.
 Single words may be doubleclicked. If the word is highlighted directly by the search function, 1 click suffices.
