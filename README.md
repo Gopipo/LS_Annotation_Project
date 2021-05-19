@@ -57,6 +57,7 @@ Single words may be doubleclicked. If the word is highlighted directly by the se
 You cannot mark segments past a newline-character. However, as long as you do not move down to the next line, you can move your cursor past them and the selection still works.
 
 If it looks like there is no image: Some "images" are (a few) pixels only.
+To ensure this is the case, you may save your progress and reload the page.
 
 ## Getting the data
 Export your annotations to a JSONL-file with this command:
