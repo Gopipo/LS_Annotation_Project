@@ -56,6 +56,8 @@ For text alignment, use your browser's find function (Ctrl+f) and select "Highli
 Single words may be doubleclicked. If the word is highlighted directly by the search function, 1 click suffices.
 You cannot mark segments past a newline-character. However, as long as you do not move down to the next line, you can move your cursor past them and the selection still works.
 
+If it looks like there is no image: Some "images" are (a few) pixels only.
+
 ## Getting the data
 Export your annotations to a JSONL-file with this command:
 ```
