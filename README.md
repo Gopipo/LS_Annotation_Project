@@ -1,6 +1,23 @@
 # LS Annotation Project
 
 ## Preprocessing
+
+### Remove images with at least 1 dimension < 16px
+
+To remove tiny pictures, run removePixels.py. 
+There are 2 arguments:
+
+-i or --imgdir: Enter the absolute path to the folder containing the images to be cleaned of tiny images. Accepts 1 or more directories
+
+-k or --keepfirst: If enabled, keeps the first of each group of equal images per text.
+
+Example:
+```
+python3 removePixels.py --imgdir C:\path\to\folder C:\path\to\folder2 -k
+```
+
+### Create JSON-file
+
 Before running dir2jsonl.py once to prepare images and text for prodigy, make sure that your corpus directory structure is as follows:
 
 Images:
