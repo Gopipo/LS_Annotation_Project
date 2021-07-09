@@ -1,5 +1,6 @@
 # Corpus files
 Corpora/
+*.jsonl
 
 #local backup files
 dir2jsonl_bk.py
