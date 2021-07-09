@@ -3,17 +3,18 @@
 
 from PIL import Image
 from PIL import ImageChops
+from PIL import UnidentifiedImageError
 from argparse import ArgumentParser
 
 import xml.etree.ElementTree as ET
 import os
-import sys
 import re
+
 
 
 def removeKeepFirst(rmdict):
     """
-    Keeps first instance of every group of equal images per text. 
+    Keeps first instance of every group of equal images per text.
     Removes the rest..
     """
     for key in rmdict.keys():
@@ -27,20 +28,25 @@ def removeKeepFirst(rmdict):
                 comparison = Image.open(rmdict[key][marker])
                 # check size
                 if current.size == comparison.size:
-                    diff = ImageChops.difference(current, comparison)
-                    # empty (False) if equal
-                    difference = diff.getbbox()
-                    if not difference:
+                    try:
+                        diff = ImageChops.difference(current, comparison)
+                        # empty (False) if equal
+                        difference = diff.getbbox()
+                        if not difference:
+                            # mark for removal as not to change list length during loop
+                            indexlist.append(marker)
+                    # corrupted images generate os.error -2
+                    except:
                         # mark for removal as not to change list length during loop
                         indexlist.append(marker)
                 marker += 1
             # remove list elements from rear as not to change indices
             indexlist.sort(reverse=True)
-            for index in indexlist:
+            for ind in indexlist:
                 # remove file
-                os.remove(rmdict[key][index])
+                os.remove(rmdict[key][ind])
                 # remove list entry
-                rmdict[key].pop(index)
+                rmdict[key].pop(ind)
             index += 1
 
 def dictifyRmset(rmset):
@@ -54,17 +60,20 @@ def dictifyRmset(rmset):
             rmdict[txtName].append(element)
         except KeyError:
             rmdict[txtName] = [element]
-    removeKeepFirst(rmdict)
 
 
 def main(args):
     """
     Checks image sizes and removes those below a given height or width.
+    Also removes images with a aspect ratio above 1:7.
+    Also removes images that cannot be opened by PIL..
     """
     for dir in args.imgdir:
         rmset = set()
         for image in os.listdir(dir):
             image = os.path.join(dir, image)
+            width = 100
+            height = 100
             if image[-3:] == "svg":
                 tree = ET.parse(image)
                 root = tree.getroot()
@@ -76,10 +85,13 @@ def main(args):
                     #if no default resolution is given, keep it.
                     continue
             else:
-                with Image.open(image) as im:
-                    width, height = im.size
+                try:
+                    with Image.open(image) as im:
+                        width, height = im.size
+                except UnidentifiedImageError:
+                    rmset.add(image)
             # 16px chosen due to this being the smallest size of icons under Windows
-            if int(width) < 16 or int(height) < 16:
+            if (int(width) < 16 or int(height) < 16) or (int(width)/int(height) > 7 or int(width)/int(height) < 0.14):
                 rmset.add(image)
         if args.keepfirst:
             dictifyRmset(rmset)
